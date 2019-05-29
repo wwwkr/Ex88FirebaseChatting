@@ -41,4 +41,21 @@
         <!--<item name="android:listDivider">@android:color/transparent</item>-->
         <!--<item name="android:scrollbarFadeDuration">5000000</item>-->
     <!--</style>-->
+
+
+    <style name="AppTheme.Toolbar">
+        <!-- 뷰의 속성들을 이곳에서 하나의 항목으로 추가-->
+        <item name="android:background">@color/white</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
+    <!--앱바 스타일-->
+    <style name="AppTheme.Appbar">
+        <item name="titleTextColor">#FFFFFF</item>
+        <item name="subtitleTextColor">#FFFFFF</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

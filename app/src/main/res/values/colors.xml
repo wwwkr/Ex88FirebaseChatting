@@ -66,4 +66,6 @@
     <color name="c_c3c3c3">#c3c3c3</color>
     <color name="c_ffc556">#ffc556</color>
     <color name="c_333333">#333333</color>
+
+    <color name="white">#ffffff</color>
 </resources>

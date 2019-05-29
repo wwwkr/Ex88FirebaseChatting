@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -20,7 +22,6 @@
             android:layout_height="80dp"
             android:layout_centerInParent="true"
             android:src="@drawable/cooking" />
-
     </RelativeLayout>
 
 
@@ -30,8 +31,8 @@
         android:layout_height="0dp"
         android:layout_weight="1.5"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-       >
+        android:layout_marginRight="40dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +83,7 @@
                 android:theme="@style/EditTextLabel">
 
                 <EditText
-                    android:id="@+id/et_pwd"
+                    android:id="@+id/et_pw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="true"
@@ -100,27 +101,44 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="21dp"
-                >
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="실행시 자동 로그인"
+                android:orientation="horizontal">
 
-                    android:checked="false"
-                    android:paddingLeft="6dp"
-                    android:textSize="12sp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/c_5d5e5f"
-                    android:text="비밀번호 찾기"
-                    />
-                </LinearLayout>
+                    android:layout_weight="1">
+
+                    <CheckBox
+                        android:id="@+id/cb_autologin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+
+                        android:checked="false"
+                        android:paddingLeft="6dp"
+                        android:text="실행시 자동 로그인"
+                        android:textColor="@color/c_5d5e5f"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_findpwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/transparent"
+                        android:text="비밀번호찾기"
+                        android:textColor="@color/c_5d5e5f"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -143,7 +161,8 @@
                 android:layout_height="40dp"
                 android:backgroundTint="#ff5e24"
                 android:text="로그인"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:onClick="clickLogin"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -151,7 +170,9 @@
                 android:backgroundTint="#ffffff"
                 android:text="회원가입"
                 android:textSize="14sp"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:layout_marginTop="10dp"
+                android:onClick="clickSignUp"/>
         </LinearLayout>
 
     </RelativeLayout>
