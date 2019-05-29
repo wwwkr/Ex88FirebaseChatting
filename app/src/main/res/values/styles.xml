@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- EditTextStyle -->
+    <style name="EditTextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColor">@color/c_ff5e24</item>
+        <item name="android:textColorHint">@color/c_afafaf</item>
+        <item name="android:textSize">14sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/c_ff5e24</item>
+        <item name="colorControlNormal">@color/c_a4a5a7</item>
+        <item name="colorControlActivated">@color/c_ff5e24</item>
+    </style>
+
+    <style name="EditTextLabel_TextColor_Black" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColor">@color/c_black</item>
+        <item name="android:textColorHint">@color/c_afafaf</item>
+        <item name="android:textSize">14sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/c_black</item>
+        <item name="colorControlNormal">@color/c_a4a5a7</item>
+        <item name="colorControlActivated">@color/c_ff5e24</item>
+    </style>
+
+    <!--<style name="ThemeOverlay.AppCompat.navTheme">-->
+        <!--<item name="android:background">@android:color/transparent</item>-->
+        <!--<item name="colorPrimary">@color/c_black</item>-->
+        <!--&lt;!&ndash;<item name="colorControlHighlight">@color/c_black</item>&ndash;&gt;-->
+        <!--<item name="itemBackground">@drawable/c_drawer_item</item>-->
+        <!--<item name="itemIconTint">@drawable/c_drawer_item_textcolor</item>-->
+        <!--<item name="itemTextColor">@drawable/c_drawer_item_textcolor</item>-->
+        <!--<item name="android:listDivider">@android:color/transparent</item>-->
+        <!--<item name="android:scrollbarFadeDuration">5000000</item>-->
+    <!--</style>-->
+</resources>

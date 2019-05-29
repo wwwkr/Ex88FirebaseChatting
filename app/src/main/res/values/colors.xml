@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- 케이터링 -->
+    <color name="c_red">#ff0000</color>
+    <color name="c_red_deep">#dd0000</color>
+    <color name="c_white">#ffffff</color>
+    <color name="c_main">#ff5e24</color>
+    <color name="c_ff5e24">#ff5e24</color>
+    <color name="c_main_on">#dd511f</color>
+    <color name="c_dd511f">#dd511f</color>
+    <color name="c_ff9f00">#ff9f00</color>
+    <color name="c_black">#000000</color>
+    <color name="c_2e2f30">#2e2f30</color>
+    <color name="c_5d5e5f">#5d5e5f</color>
+    <color name="c_afafaf">#afafaf</color>
+    <color name="c_e4e4e3">#e4e4e3</color>
+    <color name="c_f2f2f2">#f2f2f2</color>
+    <color name="c_f7f7f7">#f7f7f7</color>
+    <color name="c_a4a5a6">#a4a5a6</color>
+    <color name="c_a4a5a7">#a4a5a7</color>
+    <color name="c_e9e7e6">#e9e7e6</color>
+
+    <color name="c_4dd865">#4dd865</color>
+    <color name="c_2a9a3e">#2a9a3e</color>
+    <color name="c_4a4a4a">#4a4a4a</color>
+    <color name="c_ff4c0c">#ff4c0c</color>
+    <color name="c_606060">#606060</color>
+    <color name="c_363636">#363636</color>
+    <color name="c_9b9b9b">#9b9b9b</color>
+    <color name="c_e0e7f5">#e0e7f5</color>
+    <color name="c_242424">#242424</color>
+    <color name="color_lightred">#ff5e24</color>
+    <color name="c_black_50">#80000000</color>
+    <color name="c_black_30">#50000000</color>
+    <color name="c_eae8e6">#eae8e6</color>
+
+
+    <color name="c_e95451">#e95451</color>
+    <color name="c_blue">#0000FF</color>
+    <color name="c_blue50">#800000FF</color>
+    <color name="c_3e76cd">#3E76CD</color> <!-- 블루 -->
+    <color name="c_3e76cd_50">#803E76CD</color> <!-- 블루 알파50 -->
+    <color name="c_f23a30">#f23a30</color> <!-- 레드 -->
+    <color name="c_f23a30_50">#80f23a30</color> <!-- 레드 알파50 -->
+    <color name="c_00bf78">#00bf78</color>
+    <!-- 칼랜더 -->
+    <!-- General -->
+    <color name="alert_circle">#CC0000</color>
+    <color name="confirm_circle">#669900</color>
+    <color name="info_cirle">#33b5e5</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="black">#3b4144</color>
+    <color name="calendarBackgroundColor">#FFFFFF</color>
+    <color name="calendarDayTextColor">#00bf78</color>
+    <color name="c_f4f4f4">#f4f4f4</color>
+    <color name="c_ffe89f">#ffe89f</color>
+
+    <color name="c_949596">#949596</color>
+    <color name="c_e1e4e7">#e1e4e7</color>
+    <!-- -->
+    <color name="c_3e76ce">#3e76ce</color>
+    <color name="c_c3c3c3">#c3c3c3</color>
+    <color name="c_ffc556">#ffc556</color>
+    <color name="c_333333">#333333</color>
+</resources>
