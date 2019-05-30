@@ -210,12 +210,7 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#e4e4e3"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -224,6 +219,7 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         >
 
         <TextView
@@ -238,7 +234,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="확인"
+                android:text="선택"
                 android:textColor="#ffffff"
                 android:backgroundTint="#5d5e5f"
                 android:layout_marginLeft="10.2dp"
@@ -246,9 +242,158 @@
                 />
 
 
-
-
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e4e4e3"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_round"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이용약관 동의 (필수)"
+                        android:textColor="#5d5e5f"
+                        android:textSize="10sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="테스트톡 이용약관에 동의합니다."
+                        android:textColor="#5d5e5f"
+                        android:textSize="10sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내용보기"
+                        android:textColor="#5d5e5f"
+                        android:textSize="10sp"
+                        android:layout_marginRight="10dp"/>
+
+                    <CheckBox
+                        android:id="@+id/cb_use"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/cb_autologin"
+                        android:checked="false"
+                        android:textColor="@color/c_5d5e5f"
+                        android:textSize="12sp"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_round"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개인정보 취급방침 동의 (필수)"
+                        android:textColor="#5d5e5f"
+                        android:textSize="10sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개인정보 수집에 동의합니다."
+                        android:textColor="#5d5e5f"
+                        android:textSize="10sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내용보기"
+                        android:textColor="#5d5e5f"
+                        android:textSize="10sp"
+                        android:layout_marginRight="10dp"/>
+
+                    <CheckBox
+                        android:id="@+id/cb_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/cb_autologin"
+                        android:checked="false"
+                        android:textColor="@color/c_5d5e5f"
+                        android:textSize="12sp"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e4e3"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="39dp"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 </LinearLayout>
