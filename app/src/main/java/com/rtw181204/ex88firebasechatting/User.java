@@ -1,0 +1,21 @@
+package com.rtw181204.ex88firebasechatting;
+
+public class User {
+
+
+    public String id;
+    public String name;
+    public String nick;
+    public String profile;
+
+
+    public User(String id, String name, String nick, String profile) {
+        this.id = id;
+        this.name = name;
+        this.nick = nick;
+        this.profile = profile;
+    }
+
+    public User() {
+    }
+}

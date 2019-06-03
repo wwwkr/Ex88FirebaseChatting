@@ -46,12 +46,17 @@ public class ChatAdapter extends BaseAdapter {
         //재활용하는 view(convertView)는 사용하지 않음
         View itemView = null;
 
-        if(item.getName().equals(G.nickName)){
+//        if(item.getName().equals(G.nickName)){
+//            itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
+//        }else {
+//            itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
+//        }
+
+        if(BaseActivity.gUid.equals(BaseActivity.gUid)){
             itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
         }else {
             itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
         }
-
         //2. bind View
         CircleImageView iv = itemView.findViewById(R.id.iv);
         TextView tvName = itemView.findViewById(R.id.tv_name);

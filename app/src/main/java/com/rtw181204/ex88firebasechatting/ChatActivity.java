@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
 
     ListView listView;
     EditText etMsg;
@@ -35,9 +36,10 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        Log.i("TAGAA","Chat");
 
         //제목줄에 내 닉네임이 표시되도록
-        getSupportActionBar().setTitle(G.nickName);
+//        getSupportActionBar().setTitle(gNick);
 
         listView = findViewById(R.id.listview);
         etMsg = findViewById(R.id.et);
@@ -95,16 +97,16 @@ public class ChatActivity extends AppCompatActivity {
 
     public void clickSend(View view) {
 
-        String nickName = G.nickName;
+        String nickName = gNick;
         String message = etMsg.getText().toString();
-        String profileUrl = G.profileUrl;
+        String profileUrl = gProfile;
 
         Calendar calendar = Calendar.getInstance();
         String time = calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE);
 
 
         //메세지를 firebase DB에 객체 통째로 저장
-        MessageItem messageItem = new MessageItem(nickName, message ,time, profileUrl);
+        MessageItem messageItem = new MessageItem(nickName, message ,time, profileUrl,getUid());
 
         //'chat' 노드에 객체 통째로 값 추가(push)
         chatRef.push().setValue(messageItem);
