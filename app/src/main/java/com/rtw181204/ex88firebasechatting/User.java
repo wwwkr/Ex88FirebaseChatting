@@ -7,13 +7,15 @@ public class User {
     public String name;
     public String nick;
     public String profile;
+    public String uid;
 
 
-    public User(String id, String name, String nick, String profile) {
+    public User(String id, String name, String nick, String profile, String uid) {
         this.id = id;
         this.name = name;
         this.nick = nick;
         this.profile = profile;
+        this.uid = uid;
     }
 
     public User() {

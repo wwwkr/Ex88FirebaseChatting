@@ -2,6 +2,7 @@ package com.rtw181204.ex88firebasechatting;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,7 +25,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SignUpActivity extends BaseActivity {
 
@@ -105,7 +112,6 @@ public class SignUpActivity extends BaseActivity {
 //                   Toast.makeText(this, imgUri.toString(), Toast.LENGTH_SHORT).show();
                    Picasso.get().load(imgUri).into(ivProfile);
 
-                    gProfile = imgUri.toString();
 
 
                 }
@@ -115,6 +121,9 @@ public class SignUpActivity extends BaseActivity {
 
 //    완료버튼
     public void clickCreate(View view) {
+
+
+        saveData();
 
         gId = etId.getText().toString();
         gPw = etPw.getText().toString();
@@ -137,7 +146,7 @@ public class SignUpActivity extends BaseActivity {
 
 
 
-                            User user = new User(gId, gName, gNick, gProfile);
+                            User user = new User(gId, gName, gNick, gProfile,getUid());
 
                             DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                             database.child("users").child(getUid()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -163,5 +172,47 @@ public class SignUpActivity extends BaseActivity {
 
                     }
                 });
+
+    }
+
+    void saveData(){
+        //프로필이미지를 firebase저장소에 업로드하기
+        if(imgUri==null)return;
+
+        //firebaseStorage 관리 객체 얻어오기
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+
+        //이미지파일 노드명이 중복되지 않도록
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+        String fileName = sdf.format(new Date())+".png";
+
+        //'root'노드 아래에 'profileImages'라는 폴더 안에 저장
+        //노드참조객체 얻어오기
+        final StorageReference imgRef = firebaseStorage.getReference("profileImages/"+fileName);
+
+        //이미지 업로드
+        final UploadTask uploadTask = imgRef.putFile(imgUri);
+
+        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                //이미지 업로드에 성공헀으므로
+                //업로드된 이미지의 다운로드 소(URL) 얻어오기
+                imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        //firebase저장소에 있는 이미지의 다운로드 주소를 문자열로..
+                        gProfile = uri.toString();
+
+
+                    }
+                });
+
+
+
+            }
+        });
+
     }
 }

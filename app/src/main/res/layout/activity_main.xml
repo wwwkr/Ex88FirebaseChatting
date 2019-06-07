@@ -6,19 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/et_name"
+    <TextView
+        android:id="@+id/tv_nick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:maxLength="10"
         android:layout_centerInParent="true"
-        android:hint="input nick name"
         android:gravity="center"
         android:inputType="text"
-        android:background="@drawable/back_et_name"
+        android:background="@drawable/bg_round"
         android:padding="8dp"
-        android:textCursorDrawable="@drawable/et_name_cursor"/>
+        android:text="닉네임"
+        android:textColor="#000000"
+        />
     
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_profile"
@@ -26,16 +27,16 @@
         android:layout_height="80dp"
         android:layout_centerInParent="true"
         android:src="@mipmap/ic_launcher"
-        android:layout_above="@id/et_name"
+        android:layout_above="@id/tv_nick"
         android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:onClick="clickImage"/>
+
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="입장"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="#ff5e24"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"

@@ -1,6 +1,7 @@
 package com.rtw181204.ex88firebasechatting;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,12 +59,16 @@ public class LoginActivity extends BaseActivity {
 
         }
 
-        loadData();
+
+
 
 
     }
 
     public void clickLogin(View view) {
+
+
+
         userId = etId.getText().toString();
         userPw = etPw.getText().toString();
 
@@ -90,7 +95,7 @@ public class LoginActivity extends BaseActivity {
 
 
                             finish();
-                            startActivity(new Intent(LoginActivity.this, ChatActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                         } else {
                             Toast.makeText(getApplicationContext(), "로그인 실패!"+ " 로그인 실패 유형\n - password가 맞지 않습니다.\n -서버에러", Toast.LENGTH_LONG).show();
@@ -106,35 +111,6 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    public void loadData(){
-
-        String uid = FirebaseAuth.getInstance().getUid();
-        // 데이터 불러오기
-                            FirebaseDatabase.getInstance().getReference().child("users").child(uid).addValueEventListener(new ValueEventListener() {
-
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                    User user = dataSnapshot.getValue(User.class);
 
 
-                                    if(user!=null){
-                                        gId = user.id;
-                                        gName = user.name;
-                                        gNick = user.nick;
-                                        gProfile = user.profile;
-                                        gUid = FirebaseAuth.getInstance().getUid();
-
-                                    }
-
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-
-    }
 }

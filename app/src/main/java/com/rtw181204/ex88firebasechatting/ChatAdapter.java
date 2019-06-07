@@ -1,5 +1,6 @@
 package com.rtw181204.ex88firebasechatting;
 
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -16,6 +21,9 @@ public class ChatAdapter extends BaseAdapter {
 
     ArrayList<MessageItem> messageItems;
     LayoutInflater inflater;
+    String userUid;
+    View itemView;
+    ArrayList<String> datas = new ArrayList<>();
 
     public ChatAdapter(ArrayList<MessageItem> messageItems, LayoutInflater inflater) {
         this.messageItems = messageItems;
@@ -38,13 +46,16 @@ public class ChatAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
 
         //현재 보여줄 번째(position)의 데이터로 뷰를 생성
         MessageItem item = messageItems.get(position);
 
+
         //재활용하는 view(convertView)는 사용하지 않음
-        View itemView = null;
+
+
+
 
 //        if(item.getName().equals(G.nickName)){
 //            itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
@@ -52,11 +63,48 @@ public class ChatAdapter extends BaseAdapter {
 //            itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
 //        }
 
-        if(BaseActivity.gUid.equals(BaseActivity.gUid)){
-            itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
-        }else {
-            itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
+        FirebaseDatabase.getInstance().getReference().child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    User user = snapshot.getValue(User.class);
+
+                    datas.add(user.uid);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        if(datas.size()!=0){
+
+            for(int i=0; i<datas.size();i++){
+                if(BaseActivity.gUid.equals(datas.get(position))){
+                    itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
+                }else {
+                    itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
+                }
+            }
+
         }
+
+
+//        if(BaseActivity.gUid.equals(userUid)){
+//            itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
+//        }else {
+//            itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
+//        }
+
+
+
         //2. bind View
         CircleImageView iv = itemView.findViewById(R.id.iv);
         TextView tvName = itemView.findViewById(R.id.tv_name);
