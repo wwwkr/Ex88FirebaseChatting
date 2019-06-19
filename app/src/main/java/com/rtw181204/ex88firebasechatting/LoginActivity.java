@@ -41,6 +41,8 @@ public class LoginActivity extends BaseActivity {
         //Toolbar를 액션바로 대체하도록 설정하기!
         setSupportActionBar(toolbar);
 
+        loadData();
+
         etId = findViewById(R.id.et_id);
         etPw = findViewById(R.id.et_pw);
 
@@ -58,9 +60,6 @@ public class LoginActivity extends BaseActivity {
             startActivity(new Intent(this, MainActivity.class));
 
         }
-
-
-
 
 
     }
@@ -93,8 +92,6 @@ public class LoginActivity extends BaseActivity {
 
 
 
-
-                            finish();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                         } else {
@@ -103,7 +100,6 @@ public class LoginActivity extends BaseActivity {
                         }
                     }
                 });
-
     }
 
     public void clickSignUp(View view) {
@@ -113,4 +109,52 @@ public class LoginActivity extends BaseActivity {
 
 
 
+    void loadData(){
+
+
+
+        String uid = FirebaseAuth.getInstance().getUid();
+        // 데이터 불러오기
+        FirebaseDatabase.getInstance().getReference().child("users").child(uid).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                User user = dataSnapshot.getValue(User.class);
+
+
+                if(user!=null){
+                    gId = user.id;
+                    gName = user.name;
+                    gNick = user.nick;
+                    gProfile = user.profile;
+                    gUid = FirebaseAuth.getInstance().getUid();
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        FirebaseDatabase.getInstance().getReference("users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 }

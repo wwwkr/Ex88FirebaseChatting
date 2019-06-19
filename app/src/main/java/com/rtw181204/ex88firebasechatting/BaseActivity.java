@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
 public class BaseActivity extends AppCompatActivity {
 
 
@@ -15,6 +17,7 @@ public class BaseActivity extends AppCompatActivity {
     public static String gNick;
     public static String gProfile;
     public static String gUid;
+    public static ArrayList<String> uids = new ArrayList<>();
 
     public static String getUid() {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();

@@ -1,6 +1,7 @@
 package com.rtw181204.ex88firebasechatting;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,45 +64,48 @@ public class ChatAdapter extends BaseAdapter {
 //            itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
 //        }
 
-        FirebaseDatabase.getInstance().getReference().child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//        FirebaseDatabase.getInstance().getReference().child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//                    User user = snapshot.getValue(User.class);
+//
+//                    datas.add(user.uid);
+//
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                    User user = snapshot.getValue(User.class);
-
-                    datas.add(user.uid);
 
 
-                }
+
+//        item.uid.equals(BaseActivity.getUid()))
+
+
+        try {
+            if(item.name.equals(BaseActivity.gNick)){
+                itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
+
+            }else {
+
+                itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
+
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-        if(datas.size()!=0){
-
-            for(int i=0; i<datas.size();i++){
-                if(BaseActivity.gUid.equals(datas.get(position))){
-                    itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
-                }else {
-                    itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
-                }
-            }
-
+        }catch (Exception e){
+            e.getStackTrace();
         }
 
 
-//        if(BaseActivity.gUid.equals(userUid)){
-//            itemView = inflater.inflate(R.layout.my_msgbox, parent , false);
-//        }else {
-//            itemView = inflater.inflate(R.layout.other_msgbox, parent , false);
-//        }
+
 
 
 
@@ -116,6 +120,8 @@ public class ChatAdapter extends BaseAdapter {
         tvTime.setText(item.getTime());
 
         Glide.with(itemView).load(item.profileUrl).into(iv);
+
+
 
         return itemView;
     }

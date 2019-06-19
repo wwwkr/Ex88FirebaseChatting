@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
     TextView tvNick;
     CircleImageView ivProfile;
 
-    Uri imgUri; //갤러리앱에서 선택한 이미지의 uri
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

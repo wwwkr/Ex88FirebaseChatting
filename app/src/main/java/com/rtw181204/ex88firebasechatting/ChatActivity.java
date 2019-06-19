@@ -93,6 +93,7 @@ public class ChatActivity extends BaseActivity {
 
             }
         });
+
     }
 
     public void clickSend(View view) {
@@ -112,11 +113,8 @@ public class ChatActivity extends BaseActivity {
         chatRef.push().setValue(messageItem);
 
         etMsg.setText("");
+        listView.setSelection(messageItems.size()-1);
 
-        //소프트키보드 안보이도록
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
 
 
 

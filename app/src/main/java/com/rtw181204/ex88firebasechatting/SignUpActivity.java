@@ -109,9 +109,7 @@ public class SignUpActivity extends BaseActivity {
                         ivProfile.setVisibility(View.VISIBLE);
                     }
 
-//                   Toast.makeText(this, imgUri.toString(), Toast.LENGTH_SHORT).show();
                    Picasso.get().load(imgUri).into(ivProfile);
-
 
 
                 }
@@ -129,7 +127,7 @@ public class SignUpActivity extends BaseActivity {
         gPw = etPw.getText().toString();
         gName = etName.getText().toString();
         gNick = etNick.getText().toString();
-
+        gUid = getUid();
 
 
 
@@ -141,18 +139,12 @@ public class SignUpActivity extends BaseActivity {
 
                             gId = task.getResult().getUser().getEmail();
 
-
-
-
-
-
-                            User user = new User(gId, gName, gNick, gProfile,getUid());
+                            User user = new User(gId, gName, gNick, gProfile, gUid);
 
                             DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                             database.child("users").child(getUid()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-
 
                                     finish();
                                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
